@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Fragments.ExploreFragment"
+    android:padding="16dp"
+    style="@style/NoActionBar">
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/search_background">
+
+    </SearchView>
+
+    <TextView
+        android:id="@+id/textcat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search"
+        android:layout_marginTop="44dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        tools:text="Category" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textcat"
+        android:id="@+id/btnfood"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="81dp"
+        android:src="@drawable/food"
+        android:background="@drawable/roundcorner" />
+
+    <ImageButton
+        android:layout_width="77dp"
+        android:layout_height="66dp"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/textcat"
+        android:id="@+id/btndrink"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="55dp"
+        android:src="@drawable/drink"
+        android:background="@drawable/roundcorner"
+        android:layout_toRightOf="@id/btnfood"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnfood"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:gravity="center_horizontal"
+        tools:text="Makanan"
+        />
+
+</RelativeLayout>

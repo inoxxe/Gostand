@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.ino.gostand.Model.User;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity{
 
     EditText editTextUsername, editTextPassword;
 
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -46,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //validating inputs
         if (TextUtils.isEmpty(username)) {
-            editTextUsername.setError("Please enter your username");
+            editTextUsername.setError("Please enter your NISN");
             editTextUsername.requestFocus();
             return;
         }
@@ -91,7 +94,8 @@ public class LoginActivity extends AppCompatActivity {
                         User user = new User(
                                 userJson.getString("username"),
                                 userJson.getString("number"),
-                                userJson.getString("status")
+                                userJson.getString("password"),
+                                userJson.getString("name")
                         );
 
                         //storing the user in shared preferences
@@ -99,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         //starting the profile activity
                         finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), GetStartedActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
                     }

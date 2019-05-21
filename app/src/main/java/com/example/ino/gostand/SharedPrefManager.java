@@ -4,15 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.example.ino.gostand.Model.User;
+
 
 public class SharedPrefManager {
 
     //the constants
-    private static final String SHARED_PREF_NAME = "geraiayam";
+    private static final String SHARED_PREF_NAME = "gostand";
     private static final String KEY_USERNAME = "keyusername";
     private static final String KEY_NUMBER = "keynumber";
     private static final String KEY_PASS = "keypass";
-    private static final String KEY_MAPS = "keymaps";
+    private static final String KEY_NAME = "keyname";
 
 
     private static SharedPrefManager mInstance;
@@ -37,7 +39,8 @@ public class SharedPrefManager {
         editor.putString(KEY_USERNAME, user.getUsername());
         editor.putString(KEY_NUMBER,user.getNumber());
         editor.putString(KEY_PASS,user.getPassword());
-        editor.putString(KEY_MAPS,user.getLocation());
+        editor.putString(KEY_NAME,user.getName());
+
         editor.apply();
     }
 
@@ -54,8 +57,8 @@ public class SharedPrefManager {
                 sharedPreferences.getString(KEY_USERNAME, null),
                 sharedPreferences.getString(KEY_NUMBER,null),
                 sharedPreferences.getString(KEY_PASS,null),
-                sharedPreferences.getString(KEY_MAPS,null)
-        );
+                sharedPreferences.getString(KEY_NAME,null)
+                );
     }
 
     //this method will logout the user

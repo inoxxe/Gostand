@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_person_outline_black_24dp"
+        android:background="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/start_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="6sp"
+        android:layout_gravity="center"
+        android:text="Nama Pengguna"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="7sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="Your account is ready!\n Fill in your contact number then Tap on Get Started to Proceed"
+        />
+
+    <EditText
+        android:id="@+id/edittextnumber"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="13dp"
+        android:textColorHint="#fff"
+        android:hint="Insert Phone Number Here"
+        android:inputType="number"
+        android:backgroundTint="#fff"
+        android:maxLength="13"
+        />
+
+    <Button
+        android:id="@+id/btngetstarted"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:layout_width="142dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/get_started_button"
+        android:layout_gravity="center"
+        android:elevation="10dp"
+        android:text="Get Started"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="#fd7e77"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="4sp"
+        android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+        />
+
+</LinearLayout>

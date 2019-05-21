@@ -42,15 +42,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.nav_explore:
-                        getSupportActionBar().setTitle("News");
                         setFragment(exploreFragment);
                         return true;
                     case R.id.nav_reorder:
-                        getSupportActionBar().setTitle("Kategori");
                         setFragment(cartFragment);
                         return true;
                     case R.id.nav_account:
-                        getSupportActionBar().setTitle("Bookmark");
                         setFragment(accountFragment);
                         return true;
                     default:

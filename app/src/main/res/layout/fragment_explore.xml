@@ -4,9 +4,13 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Fragments.ExploreFragment"
-    android:padding="16dp"
-    style="@style/NoActionBar">
+    android:padding="16dp">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ScrollView>
     <SearchView
         android:id="@+id/search"
         android:layout_width="300dp"
@@ -24,15 +28,14 @@
         android:layout_below="@id/search"
         android:layout_marginTop="44dp"
         android:textSize="16sp"
-        android:textColor="#000000"
-        tools:text="Category" />
+        android:textColor="@color/black"
+        android:text="Category" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textcat"
         android:id="@+id/btnfood"
-
         android:layout_marginTop="20dp"
         android:layout_marginStart="81dp"
         android:src="@drawable/food"
@@ -52,13 +55,81 @@
         />
 
     <TextView
+        android:id="@+id/txtfood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnfood"
+        android:layout_marginTop="17dp"
+        android:layout_marginStart="91dp"
         android:textSize="14sp"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:gravity="center_horizontal"
-        tools:text="Makanan"
+        android:text="Makanan"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btndrink"
+        android:layout_marginStart="223dp"
+        android:layout_marginTop="17dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:text="Minuman" />
+
+    <TextView
+        android:id="@+id/txtstand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtfood"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="Stand"
+        />
+
+    <TextView
+        android:id="@+id/txtstandall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtfood"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="See all"
+        android:clickable="true"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/txtstand"
+        android:id="@+id/recyclerstand"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.CardView
+        android:layout_below="@id/recyclerstand"
+        android:id="@+id/cardstand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_shopping_cart_black_24dp"
+        />
+
+
+
 
 </RelativeLayout>

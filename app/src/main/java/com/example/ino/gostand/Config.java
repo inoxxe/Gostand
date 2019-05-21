@@ -4,12 +4,12 @@ package com.example.ino.gostand;
 public class Config {
     //Data URL
     public static final String DATA_URL = "http://dinusheroes.xyz/ayam/tampilSemua.php";
-    public static final String URL_GET_CART = "http://dinusheroes.xyz/ayam/tampilkeranjang.php";
+    public static final String URL_GET_STARTED = "https://dinusheroes.com/gostand/getstarted.php";
     public static final String URL_GET_EMP = "http://dinusheroes.xyz/ayam/tampil.php?id=";
     public static final String URL_UPDATE_AYAM= "http://dinusheroes.xyz/ayam/update.php?";
     public static final String URL_PENJUALAN = "http://dinusheroes.xyz/ayam/penjualan.php";
     public static final String TAG_JSON_ARRAY="result";
-    private static final String ROOT_URL = "http://dinusheroes.xyz/ayam/Api.php?apicall=";
+    private static final String ROOT_URL = "https://dinusheroes.com/gostand/login.php?apicall=";
 
     public static final String URL_LOGIN= ROOT_URL + "login";
     public static final String URL_KERANJANG_AYAM= ROOT_URL + "keranjang";

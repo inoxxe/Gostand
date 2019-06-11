@@ -26,7 +26,11 @@ public class LoginActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        if(SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()){
+            Intent i = new Intent(this,MainActivity.class);
+            startActivity(i);
+            finish();
+        }
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
@@ -92,10 +96,11 @@ public class LoginActivity extends AppCompatActivity{
 
                         //creating a new user object
                         User user = new User(
-                                userJson.getString("username"),
-                                userJson.getString("number"),
-                                userJson.getString("password"),
-                                userJson.getString("name")
+                                userJson.getString("student_username"),
+                                userJson.getString("student_phone"),
+                                userJson.getString("student_password"),
+                                userJson.getString("student_name"),
+                                userJson.getString("student_unique")
                         );
 
                         //storing the user in shared preferences

@@ -4,13 +4,14 @@ package com.example.ino.gostand.Model;
 
 public class User {
 
-    private String username,number,password,name;
+    private String username,number,password,name,id;
 
-    public User(String username, String number, String password, String name) {
+    public User(String username, String number, String password, String name, String id) {
         this.username = username;
         this.number = number;
         this.password = password;
         this.name = name;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -43,5 +44,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

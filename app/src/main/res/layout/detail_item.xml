@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/detail_item_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/coba"
+                />
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/detail_item_image"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+
+                <TextView
+                    android:id="@+id/detail_item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Nama Makanan" />
+
+                <TextView
+                    android:id="@+id/detail_item_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="deskripsi makanan"
+                    android:lines="5"
+                    />
+
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dot"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:src="@drawable/dotted"
+                    android:layerType="software"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="8sp"
+                    android:text="15000" />
+
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:layout_below="@id/linear1"
+                    android:gravity="center"
+                    >
+
+                    <ImageButton
+                        android:elevation="10dp"
+                        android:id="@+id/btnmin"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_remove_black_24dp"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/button_border"
+                        />
+
+                    <TextView
+                        android:id="@+id/detail_item_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        />
+
+                    <ImageButton
+                        android:elevation="10dp"
+                        android:id="@+id/btnplus"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_add_black_24dp"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/button_border"
+                        />
+
+                </LinearLayout>
+
+
+            <Button
+                android:elevation="10dp"
+                android:id="@+id/btncart"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearbtn"
+                android:layout_marginTop="30dp"
+                android:text="Add to cart"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/login_button"
+                android:visibility="invisible"
+                />
+
+            <RelativeLayout
+                android:id="@+id/layoutbtn"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearbtn"
+                android:visibility="invisible"
+                >
+
+
+            <Button
+                android:elevation="10dp"
+                android:id="@+id/btnupdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:text="Update"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/login_button"
+                />
+            <Button
+                android:layout_toRightOf="@id/btnupdate"
+                android:layout_marginStart="50dp"
+                android:elevation="10dp"
+                android:id="@+id/btndelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/login_button"
+                />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_item_id"
+            android:visibility="gone"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_item_stand"
+            android:visibility="gone"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

@@ -15,6 +15,7 @@ public class SharedPrefManager {
     private static final String KEY_NUMBER = "keynumber";
     private static final String KEY_PASS = "keypass";
     private static final String KEY_NAME = "keyname";
+    private static final String KEY_ID = "keyid";
 
 
     private static SharedPrefManager mInstance;
@@ -40,6 +41,7 @@ public class SharedPrefManager {
         editor.putString(KEY_NUMBER,user.getNumber());
         editor.putString(KEY_PASS,user.getPassword());
         editor.putString(KEY_NAME,user.getName());
+        editor.putString(KEY_ID,user.getId());
 
         editor.apply();
     }
@@ -57,7 +59,8 @@ public class SharedPrefManager {
                 sharedPreferences.getString(KEY_USERNAME, null),
                 sharedPreferences.getString(KEY_NUMBER,null),
                 sharedPreferences.getString(KEY_PASS,null),
-                sharedPreferences.getString(KEY_NAME,null)
+                sharedPreferences.getString(KEY_NAME,null),
+                sharedPreferences.getString(KEY_ID,null)
                 );
     }
 
@@ -67,6 +70,7 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
+
         mCtx.startActivity(new Intent(mCtx, LoginActivity.class));
     }
 }

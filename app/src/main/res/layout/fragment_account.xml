@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/account_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/account_image"
         android:layout_centerVertical="true"
@@ -44,9 +44,23 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btnlogout"
+        android:id="@+id/btnorderhistory"
         android:layout_below="@id/con1"
         android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="140dp"
+        android:backgroundTint="#fff"
+        android:drawableStart="@mipmap/ic_history"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="Order History"
+        />
+
+
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_below="@id/btnorderhistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingRight="200dp"

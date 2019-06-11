@@ -67,7 +67,7 @@ public class GetStartedActivity extends AppCompatActivity {
 
 
         if (TextUtils.isEmpty(number)) {
-            editTextnumber.setError("Please enter your NISN");
+            editTextnumber.setError("Please enter your Phone Number");
             editTextnumber.requestFocus();
             return;
         }

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/grey">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detail_order_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Pesanan Sedang Dibuat" />
+
+<!--
+                <TextView
+                    android:id="@+id/detail_standphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:lineSpacingExtra="8sp"
+                    android:text="pesanan sedang dibuat oleh tempat makan"
+                    />
+-->
+
+                <View
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:lineSpacingExtra="8sp"
+                    android:text="ORDER DETAILS" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+
+                        android:id="@+id/detail_order_standimage"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignTop="@id/detail_order_standtitle"
+                        android:src="@mipmap/ic_restaurant" />
+
+                    <TextView
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/detail_order_standtitle"
+                        android:layout_toRightOf="@id/detail_order_standimage"
+                        android:textSize="14sp"
+                        android:textColor="#424242"
+                        android:text="Stand Name"
+                        />
+
+                    <TextView
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/detail_order_standtitle"
+                        android:id="@+id/detail_order_standname"
+                        android:layout_toRightOf="@id/detail_order_standimage"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:text="Pesanan Sedang Diproses"
+                        android:textStyle="bold"/>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:lineSpacingExtra="8sp"
+                    android:text="ORDER INFO" />
+
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/detail_orderidtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Order ID" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/detail_orderid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="INVBUG20180001" />
+
+                    <TextView
+                        android:id="@+id/detail_orderdatetitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/detail_orderidtitle"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Date" />
+
+                    <TextView
+                        android:layout_toLeftOf="@id/detail_ordertime"
+                        android:layout_marginEnd="2dp"
+                        android:id="@+id/detail_orderdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/detail_orderid"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Today," />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/detail_ordertime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/detail_orderid"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="12:56" />
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:lineSpacingExtra="8sp"
+                    android:text="ORDER ITEMS" />
+
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycleritem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">`
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:lineSpacingExtra="8sp"
+                    android:text="PAYMENT DETAILS" />
+
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/detail_estimatedtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Estimated Price" />
+
+
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/detail_estimated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="15.000" />
+
+                    <ImageView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/dot1"
+                        android:layout_below="@id/detail_estimatedtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:src="@drawable/dotted"
+                        android:layerType="software"
+                        android:visibility="invisible"
+                        />
+
+                    <TextView
+                        android:id="@+id/detail_paymenttitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dot1"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Payment"
+                        android:visibility="invisible"
+                        />
+
+
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/detail_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dot1"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="15.000"
+                        android:visibility="invisible"
+                        />
+
+                    <ImageView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/dot2"
+                        android:layout_below="@id/detail_paymenttitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:src="@drawable/dotted"
+                        android:layerType="software"
+                        android:visibility="invisible"
+                        />
+
+                    <TextView
+                        android:id="@+id/detail_changetitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dot2"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Change"
+                        android:visibility="invisible"
+                        />
+
+
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/detail_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dot2"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="15.000"
+                        android:visibility="invisible"
+                        />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

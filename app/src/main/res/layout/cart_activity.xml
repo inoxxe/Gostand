@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="8sp"
+                    android:text="ORDER item (s)" />
+
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dot1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:src="@drawable/dotted"
+                    android:layerType="software"
+                    />
+
+
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclercart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="robo"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="8sp"
+                    android:text="PAYMENT DETAILS" />
+
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/cart_pricetitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Estimated Price" />
+
+
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/cart_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="robo"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="8sp"
+                        android:text="15.000" />
+
+
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/btnorder"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order"
+            android:background="@drawable/roundcorner"
+            android:backgroundTint="@color/colorPrimary"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

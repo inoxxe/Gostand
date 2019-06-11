@@ -2,9 +2,13 @@ package com.example.ino.gostand.Model;
 
 public class Stand {
     private String name,number,id;
-    private int gambar;
+    private String gambar;
 
-    public Stand(String name, String number, String id, int gambar) {
+    public Stand() {
+
+    }
+
+    public Stand(String name, String number, String id, String gambar) {
         this.name = name;
         this.number = number;
         this.id = id;
@@ -35,11 +39,11 @@ public class Stand {
         this.id = id;
     }
 
-    public int getGambar() {
+    public String getGambar() {
         return gambar;
     }
 
-    public void setGambar(int gambar) {
+    public void setGambar(String gambar) {
         this.gambar = gambar;
     }
 }

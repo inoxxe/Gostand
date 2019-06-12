@@ -58,7 +58,16 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @Override
     public void onBindViewHolder(final OrderViewHolder holder, int postition) {
         Order order = orderList.get(postition);
-        holder.textViewStatus.setText("Pesanan Sedang Diproses");
+
+        final String status = order.getStatus();
+        if(status.equals("3")){
+            holder.textViewStatus.setText("Pesanan Sedang Diproses");
+        }else if(status.equals("1")){
+            holder.textViewStatus.setText("Pesanan Berhasil");
+        }else if(status.equals("2")){
+            holder.textViewStatus.setText("Pesanan Gagal");
+        }
+
         holder.textViewName.setText(order.getName());
         holder.textViewId.setText(order.getId());
         holder.textViewDate.setText(order.getDate());

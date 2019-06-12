@@ -60,12 +60,11 @@ public class DrinkActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 final Drink drink = lstDrink.get(position);
-
                 final String id = drink.getStand();
                 Intent intent = new Intent(DrinkActivity.this, DetailStandActivity.class);
-                intent.putExtra("id_stand",id);
+                intent.putExtra("id",id);
                 startActivity(intent);
-
+                finish();
             }
 
             @Override

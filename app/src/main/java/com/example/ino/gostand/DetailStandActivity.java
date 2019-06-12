@@ -50,6 +50,7 @@ public class DetailStandActivity extends AppCompatActivity {
 
     private List<Food> lstFood;
     private List<Drink> lstDrink;
+    private List<Stand> lstStand;
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewFood,recyclerViewDrink;
     private RequestQueue requestQueue;
@@ -73,6 +74,7 @@ public class DetailStandActivity extends AppCompatActivity {
 
         lstFood = new ArrayList<>();
         lstDrink = new ArrayList<>();
+        lstStand = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         fab = (FloatingActionButton)findViewById(R.id.fabcart);
@@ -84,9 +86,13 @@ public class DetailStandActivity extends AppCompatActivity {
         recyclerViewFood.setNestedScrollingEnabled(false);
         recyclerViewDrink.setLayoutManager(layoutManager2);
         recyclerViewDrink.setNestedScrollingEnabled(false);
+        imageView = (ImageView)findViewById(R.id.detail_standimage);
+        textViewName = (TextView)findViewById(R.id.detail_standname);
+        textViewPhone = (TextView)findViewById(R.id.detail_standphone);
 
+        getDetail();
         getItem();
-        //getDrink();
+
 
         recyclerViewFood.addOnItemTouchListener(new RecyclerTouchListener(DetailStandActivity.this, recyclerViewFood, new RecyclerTouchListener.ClickListener() {
             @Override
@@ -96,6 +102,33 @@ public class DetailStandActivity extends AppCompatActivity {
                 final String name = food.getName();
                 final String price = food.getPrice();
                 final String picture = food.getGambar();
+                final String status = "baru";
+                Intent intent = new Intent(DetailStandActivity.this, DetailItemActivity.class);
+                intent.putExtra("id_stand",id);
+                intent.putExtra("name",name);
+                intent.putExtra("id_food",id_food);
+                intent.putExtra("picture",picture);
+                intent.putExtra("price",price);
+                intent.putExtra("status",status);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+
+            }
+        }));
+
+        recyclerViewDrink.addOnItemTouchListener(new RecyclerTouchListener(DetailStandActivity.this, recyclerViewDrink, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                final Drink drink = lstDrink.get(position);
+                final String id_food = drink.getId();
+                final String name = drink.getName();
+                final String price = drink.getPrice();
+                final String picture = drink.getGambar();
                 final String status = "baru";
                 Intent intent = new Intent(DetailStandActivity.this, DetailItemActivity.class);
                 intent.putExtra("id_stand",id);
@@ -126,26 +159,7 @@ public class DetailStandActivity extends AppCompatActivity {
             }
         });
 
-        imageView = (ImageView)findViewById(R.id.detail_standimage);
-        textViewName = (TextView)findViewById(R.id.detail_standname);
-        textViewPhone = (TextView)findViewById(R.id.detail_standphone);
 
-        textViewName.setText(name);
-        textViewPhone.setText(phone);
-
-        if (gambar.equals("http://dinusheroes.com/newgostand/asset/images/stand/")){
-            Glide.with(DetailStandActivity.this).load(R.drawable.mascot_1)
-                    .thumbnail(0.5f)
-                    .crossFade()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imageView);
-        }else {
-            Glide.with(DetailStandActivity.this).load(gambar)
-                    .thumbnail(0.5f)
-                    .crossFade()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imageView);
-        }
 
     }
 
@@ -228,6 +242,67 @@ public class DetailStandActivity extends AppCompatActivity {
 
         getItem gf = new getItem();
         gf.execute();
+    }
+
+
+    private void getDetail() {
+
+
+        class getDetail extends AsyncTask<Void, Void, String> {
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    JSONObject standobj = jsonObject.getJSONObject("stand");
+
+                    textViewName.setText(standobj.getString("stand_name"));
+                    textViewPhone.setText(standobj.getString("stand_phone"));
+                    gambar = standobj.getString("stand_picture_link");
+                    if (gambar.equals("http://dinusheroes.com/newgostand/asset/images/stand/")){
+                        Glide.with(DetailStandActivity.this).load(R.drawable.mascot_1)
+                                .thumbnail(0.5f)
+                                .crossFade()
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .into(imageView);
+                    }else {
+                        Glide.with(DetailStandActivity.this).load(gambar)
+                                .thumbnail(0.5f)
+                                .crossFade()
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .into(imageView);
+                    }
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+            @Override
+            protected String doInBackground(Void... voids) {
+                RequestHandler requestHandler = new RequestHandler();
+
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id", id);
+
+                //returing the response
+                return requestHandler.sendPostRequest("https://dinusheroes.com/newgostand/api/stand/detail?id="+id, params);
+            }
+        }
+
+        getDetail gd = new getDetail();
+        gd.execute();
     }
 
 }

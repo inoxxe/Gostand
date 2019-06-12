@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -16,6 +18,7 @@ import com.example.ino.gostand.Adapter.CartItemAdapter;
 import com.example.ino.gostand.Adapter.OrderItemAdapter;
 import com.example.ino.gostand.Model.Food;
 import com.example.ino.gostand.Model.Order;
+import com.example.ino.gostand.Model.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,7 +36,7 @@ public class CartActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     private RecyclerView.LayoutManager layoutManager;
     TextView textViewName,textViewid,textViewdate,textViewtime,textViewprice,textViewStatus,textViewpayment,textViewchange,textViewpaymenttitle,textViewchangetitle;
-    ImageView imageViewdot1,imageViewdot2;
+    Button btnorder;
     String id,name,date,time,price,status,payment,change;
 
     @Override
@@ -41,16 +44,24 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_activity);
 
-        Intent intent = getIntent();
-        id = intent.getStringExtra("student_id");
+        User user = SharedPrefManager.getInstance(CartActivity.this).getUser();
+        id = user.getId();
         lstFood = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-
+        btnorder = (Button)findViewById(R.id.btnorder);
+        textViewprice = (TextView)findViewById(R.id.cart_price);
         recyclerView = (RecyclerView) findViewById(R.id.recyclercart);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setNestedScrollingEnabled(false);
+        btnorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Checkout(id);
+                finish();
+            }
+        });
 
         getFood();
 
@@ -71,6 +82,8 @@ public class CartActivity extends AppCompatActivity {
                 intent.putExtra("price",price);
                 intent.putExtra("status",status);
                 startActivity(intent);
+                finish();
+                startActivity(getIntent());
 
             }
 
@@ -100,17 +113,19 @@ public class CartActivity extends AppCompatActivity {
 
                 try {
                     JSONObject jsonObject = new JSONObject(s);
-                    JSONArray jsonArray =  jsonObject.getJSONArray("item");
+
+                    textViewprice.setText(jsonObject.getString("total"));
+                    JSONArray jsonArray =  jsonObject.getJSONArray("chart");
 
                     for(int i =0;i<jsonArray.length(); i++){
                         JSONObject productObject = jsonArray.getJSONObject(i);
                         lstFood.add(new Food(
                                 productObject.getString("product_name"),
-                                productObject.getString("detail_order_unit"),
-                                productObject.getString("detail_order_unit"),
-                                productObject.getString("detail_order_unit"),
-                                productObject.getString("detail_order_unit"),
-                                ""
+                                productObject.getString("chart_product_unique"),
+                                productObject.getString("product_price"),
+                                "",
+                                productObject.getString("product_picture_link"),
+                                productObject.getString("chart_product_unit")
                         ));
                     }
                 } catch (JSONException e) {
@@ -135,6 +150,46 @@ public class CartActivity extends AppCompatActivity {
 
         getFood gf = new getFood();
         gf.execute();
+    }
+
+    private void Checkout(String id) {
+        final String name = id;
+
+        class Checkout extends AsyncTask<Void, Void, String> {
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                try {
+                    JSONObject obj = new JSONObject(s);
+                    final String message = obj.getString("message");
+                    Toast.makeText(CartActivity.this,message,Toast.LENGTH_LONG).show();
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                RequestHandler requestHandler = new RequestHandler();
+
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id", name);
+
+                return requestHandler.sendGetRequest("http://dinusheroes.com/newgostand/api/order/checkout?id="+name, params);
+            }
+        }
+
+        Checkout cek = new Checkout();
+        cek.execute();
     }
 
 

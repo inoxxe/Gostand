@@ -2,6 +2,7 @@ package com.example.ino.gostand.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,13 +21,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ino.gostand.Adapter.StandAdapter;
+import com.example.ino.gostand.CartActivity;
 import com.example.ino.gostand.Config;
 import com.example.ino.gostand.DetailStandActivity;
 import com.example.ino.gostand.DrinkActivity;
 import com.example.ino.gostand.FoodActivity;
 import com.example.ino.gostand.Model.Stand;
+import com.example.ino.gostand.Model.User;
 import com.example.ino.gostand.R;
 import com.example.ino.gostand.RecyclerTouchListener;
+import com.example.ino.gostand.SharedPrefManager;
 import com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView;
 
 import org.json.JSONArray;
@@ -44,6 +48,7 @@ public class ExploreFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RequestQueue requestQueue;
     private ImageButton btnfood,btndrink;
+    private FloatingActionButton fab;
 
 
 
@@ -61,7 +66,7 @@ public class ExploreFragment extends Fragment {
         btndrink = (ImageButton)view.findViewById(R.id.btndrink);
         lstStand = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(view.getContext());
-
+        fab = (FloatingActionButton)view.findViewById(R.id.fabcart);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerstand);
 
@@ -93,14 +98,8 @@ public class ExploreFragment extends Fragment {
             public void onClick(View view, int position) {
                 final Stand stand = lstStand.get(position);
                 final String id = stand.getId();
-                final String name = stand.getName();
-                final String phone = stand.getNumber();
-                final String gambar = stand.getGambar();
                 Intent intent = new Intent(getContext(), DetailStandActivity.class);
                 intent.putExtra("id",id);
-                intent.putExtra("name",name);
-                intent.putExtra("phone",phone);
-                intent.putExtra("gambar",gambar);
                 startActivity(intent);
 
             }
@@ -111,6 +110,17 @@ public class ExploreFragment extends Fragment {
 
             }
         }));
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User user = SharedPrefManager.getInstance(getActivity()).getUser();
+                final String id = user.getId();
+                Intent i = new Intent(getContext(), CartActivity.class);
+                i.putExtra("student_id",id);
+                startActivity(i);
+            }
+        });
 
 
         return view;

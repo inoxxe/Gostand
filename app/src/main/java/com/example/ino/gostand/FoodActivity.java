@@ -66,6 +66,7 @@ public class FoodActivity extends AppCompatActivity {
                 Intent intent = new Intent(FoodActivity.this, DetailStandActivity.class);
                 intent.putExtra("id",id);
                 startActivity(intent);
+                finish();
 
             }
 

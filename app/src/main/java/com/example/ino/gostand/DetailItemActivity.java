@@ -22,6 +22,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.ino.gostand.Model.User;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -91,14 +94,14 @@ public class DetailItemActivity extends AppCompatActivity {
         btncart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                additem(name,count);
+                additem(id,count);
             }
         });
 
         btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteitem(name);
+                deleteitem(id);
 
             }
         });
@@ -106,7 +109,7 @@ public class DetailItemActivity extends AppCompatActivity {
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                additem(name,count);
+                additem(id,count);
 
             }
         });
@@ -154,8 +157,13 @@ public class DetailItemActivity extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(DetailItemActivity.this,s,Toast.LENGTH_LONG).show();
-            }
+                try {
+                    JSONObject obj = new JSONObject(s);
+                    final String message = obj.getString("message");
+                    Toast.makeText(DetailItemActivity.this,message,Toast.LENGTH_LONG).show();
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }            }
 
             @Override
             protected String doInBackground(Void... v) {
@@ -193,7 +201,14 @@ public class DetailItemActivity extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(DetailItemActivity.this,s,Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject obj = new JSONObject(s);
+                    final String message = obj.getString("message");
+                    Toast.makeText(DetailItemActivity.this,message,Toast.LENGTH_LONG).show();
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
@@ -203,7 +218,7 @@ public class DetailItemActivity extends AppCompatActivity {
                 params.put("student_unique",student);
 
                 RequestHandler rh = new RequestHandler();
-                String res = rh.sendPostRequest("http://dinusheroes.com/newgostand/api/order/add", params);
+                String res = rh.sendPostRequest("http://dinusheroes.com/newgostand/api/order/delete", params);
                 return res;
             }
         }

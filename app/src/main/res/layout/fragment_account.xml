@@ -13,7 +13,7 @@
         android:id="@+id/account_image"
         android:layout_width="112dp"
         android:layout_height="112dp"
-        android:src="@drawable/mascot_1"
+        android:src="@drawable/ic_person_outline_black_24dp"
         />
 
     <TextView
@@ -22,9 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/account_image"
         android:layout_centerVertical="true"
-        android:textSize="26sp"
+        android:textSize="18sp"
         android:textColor="#000000"
-        android:text="Nama Pengguna" />
+        android:text="Nama Pengguna"
+        android:lines="2"
+        />
 
 
         <TextView
